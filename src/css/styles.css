@@ -28,6 +28,11 @@ body {
   margin: 0;
 }
 
+fieldset,
+input {
+  margin: 0;
+}
+
 .nav-link {
   font-size: 18px;
   font-style: italic;
