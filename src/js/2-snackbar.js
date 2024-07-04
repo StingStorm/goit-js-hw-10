@@ -56,7 +56,7 @@ const errorToastOpt = {
   messageLineHeight: 1.5,
   messageColor: '#fff',
   backgroundColor: '#ef4040',
-  iconUrl: '/img/toastIcon.svg',
+  iconUrl: '../img/toastIcon.svg',
   iconColor: '#fff',
   position: 'topRight',
   theme: 'dark',
