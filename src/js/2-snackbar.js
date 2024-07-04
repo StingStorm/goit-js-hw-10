@@ -11,52 +11,56 @@ formOfPromises.addEventListener('submit', e => {
   const promiseType = e.target.elements.state.value;
 
   makePromise(userDelay, promiseType)
-    .then(fulfilled => iziToast.success(fulfilled))
-    .catch(error => iziToast.error(error));
+    .then(fulfilledDelay => {
+      successToastOpt.message = `Fulfilled promise in ${fulfilledDelay}ms`;
+      iziToast.success(successToastOpt);
+    })
+    .catch(errorDelay => {
+      errorToastOpt.message = `Rejected promise in ${errorDelay}ms`;
+      iziToast.error(errorToastOpt);
+    });
 });
 
 function makePromise(delay, typeOfPromise) {
-  const successToastOpt = {
-    title: 'OK',
-    titleSize: '16px',
-    titleLineHeight: 1.5,
-    message: `Fulfilled promise in ${delay}ms`,
-    messageColor: '#fff',
-    messageSize: '16px',
-    messageLineHeight: 1.5,
-    backgroundColor: '#59a10d',
-    position: 'topRight',
-    theme: 'dark',
-    closeOnEscape: true,
-    transitionIn: 'bounceInDown',
-    transitionOut: 'fadeOutUp',
-  };
-
-  const errorToastOpt = {
-    title: 'OK',
-    titleSize: '16px',
-    titleLineHeight: 1.5,
-    message: `Rejected promise in ${delay}ms`,
-    messageSize: '16px',
-    messageLineHeight: 1.5,
-    messageColor: '#fff',
-    backgroundColor: '#ef4040',
-    iconUrl: '/img/toastIcon.svg',
-    iconColor: '#fff',
-    position: 'topRight',
-    theme: 'dark',
-    closeOnEscape: true,
-    transitionIn: 'bounceInDown',
-    transitionOut: 'fadeOutUp',
-  };
-
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (typeOfPromise === 'fulfilled') {
-        resolve(successToastOpt);
+        resolve(delay);
       } else {
-        reject(errorToastOpt);
+        reject(delay);
       }
     }, delay);
   });
 }
+
+const successToastOpt = {
+  title: 'OK',
+  titleSize: '16px',
+  titleLineHeight: 1.5,
+  messageColor: '#fff',
+  messageSize: '16px',
+  messageLineHeight: 1.5,
+  backgroundColor: '#59a10d',
+  position: 'topRight',
+  theme: 'dark',
+  closeOnEscape: true,
+  transitionIn: 'bounceInDown',
+  transitionOut: 'fadeOutUp',
+};
+
+const errorToastOpt = {
+  title: 'Error',
+  titleSize: '16px',
+  titleLineHeight: 1.5,
+  messageSize: '16px',
+  messageLineHeight: 1.5,
+  messageColor: '#fff',
+  backgroundColor: '#ef4040',
+  iconUrl: '/img/toastIcon.svg',
+  iconColor: '#fff',
+  position: 'topRight',
+  theme: 'dark',
+  closeOnEscape: true,
+  transitionIn: 'bounceInDown',
+  transitionOut: 'fadeOutUp',
+};

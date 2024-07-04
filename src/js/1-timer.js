@@ -6,10 +6,10 @@ import 'izitoast/dist/css/iziToast.min.css';
 const startTimerBtn = document.querySelector('button[data-start]');
 const dateTimePicker = document.querySelector('#datetime-picker');
 
-const daysCounter = document.querySelector('.value[data-days]'),
-  hoursCounter = document.querySelector('.value[data-hours]'),
-  minutesCounter = document.querySelector('.value[data-minutes]'),
-  secondsCounter = document.querySelector('.value[data-seconds]');
+const daysCounter = document.querySelector('.value[data-days]');
+const hoursCounter = document.querySelector('.value[data-hours]');
+const minutesCounter = document.querySelector('.value[data-minutes]');
+const secondsCounter = document.querySelector('.value[data-seconds]');
 
 let userSelectedDate = 0;
 
