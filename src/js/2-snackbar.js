@@ -2,6 +2,7 @@
 import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
+import toastIcon from '../img/toastIcon.svg';
 
 const formOfPromises = document.querySelector('.form');
 
@@ -56,7 +57,7 @@ const errorToastOpt = {
   messageLineHeight: 1.5,
   messageColor: '#fff',
   backgroundColor: '#ef4040',
-  iconUrl: '../img/toastIcon.svg',
+  iconUrl: toastIcon,
   iconColor: '#fff',
   position: 'topRight',
   theme: 'dark',
